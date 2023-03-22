@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask whatIsGround;
     private bool isFacingRight = true;
     private bool isGrounded = false;
+    public AudioSource jumpSound;
+
 
     void Update()
     {
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         // Jump input
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded)
         {
+            jumpSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
     }

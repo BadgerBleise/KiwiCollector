@@ -6,9 +6,9 @@ using System;
 
 public class CoinCollector : MonoBehaviour
 {
-    public TMP_Text scoretext;
-    public int score = 0;
-
+   public TMP_Text scoretext;
+   public int score = 0;
+   public AudioSource pickupSound;
 
    private void OnTriggerEnter2D(Collider2D kiwi) 
    {
@@ -16,6 +16,7 @@ public class CoinCollector : MonoBehaviour
      {
         score++;
         scoretext.text = "Kiwi Score: " + score.ToString();
+        pickupSound.Play();
         Destroy(kiwi.gameObject);
      }
    }
