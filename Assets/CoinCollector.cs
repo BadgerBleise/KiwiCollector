@@ -14,8 +14,10 @@ public class CoinCollector : MonoBehaviour
    {
      if(kiwi.gameObject.CompareTag("Kiwi"))
      {
+        // Store the amount of gathered Kiwis
         score++;
         scoretext.text = "Kiwi Score: " + score.ToString();
+        // Add the pickup sound
         pickupSound.Play();
         Destroy(kiwi.gameObject);
      }

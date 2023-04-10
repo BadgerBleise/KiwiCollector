@@ -15,7 +15,6 @@ public class GameControl : MonoBehaviour
     {
         // Store the current scene's build index in a variable
         int sceneId = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(sceneId);
         // Load the next scene using the sceneId variable
         SceneManager.LoadScene(sceneId + 1); 
     }
@@ -25,6 +24,7 @@ public class GameControl : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Finish"))
         {
+            // Store the amount of Kiwis gathered and putting it at the end of each level
             TextContent.text = "You have gathered " + Script.score.ToString() + " Kiwis";
 
             Text.SetActive(true);
@@ -33,6 +33,7 @@ public class GameControl : MonoBehaviour
          
         if(other.gameObject.CompareTag("Spikes"))
         {
+            // Restart level if a player touches spikes
             RefreshScene();
         }
     }
@@ -43,5 +44,11 @@ public class GameControl : MonoBehaviour
          
         // Load the next scene using the sceneId variable
         SceneManager.LoadScene(sceneId); 
+    }
+    
+    public void EndGame()
+    {
+        // Quit the Game
+        Application.Quit();
     }
 }

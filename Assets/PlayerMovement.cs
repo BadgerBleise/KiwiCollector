@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         // Jump input
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)) && isGrounded)
         {
+            // Adding jump sound
             jumpSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
