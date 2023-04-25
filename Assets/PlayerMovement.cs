@@ -42,7 +42,31 @@ public class PlayerMovement : MonoBehaviour
             jumpSound.Play();
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+        // Get the velocity
+        Vector2 horizontalMove = rb.velocity;
+        // Don't use the vertical velocity
+        horizontalMove.y = 0;
+        // Calculate the approximate distance that will be traversed
+        float distance = horizontalMove.magnitude * Time.fixedDeltaTime;
+        // Normalize horizontalMove since it should be used to indicate direction
+        horizontalMove.Normalize();
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+
+        // Check if the body's current velocity will result in a collision
+        if (rb.Cast(horizontalMove, hits, distance) > 0)
+        {
+            foreach (var hit in hits)
+            {
+                if (hit.collider.gameObject.CompareTag("Ground")) 
+                {
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+                }
+            }
+        }
+
     }
+
+   
 
     void Flip()
     {
@@ -55,11 +79,12 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = scale;
     }
     
-    void OnCollisionEnter2D(Collision2D other) 
+    /*void OnCollisionStay2D(Collision2D other) 
     {
         if(other.gameObject.CompareTag("Ground"))
      {
         
+         rb.velocity = new Vector2(0, 0);
      }
-    }
+    }*/
 }

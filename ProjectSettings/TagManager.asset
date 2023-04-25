@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Kiwi
   - Spikes
+  - Ground
   layers:
   - Default
   - TransparentFX
