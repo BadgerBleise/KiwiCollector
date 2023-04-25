@@ -6,7 +6,7 @@ using System;
 
 public class CoinCollector : MonoBehaviour
 {
-   public TMP_Text scoretext;
+   public TMP_Text scoreText;
    public int score = 0;
    public AudioSource pickupSound;
 
@@ -16,7 +16,7 @@ public class CoinCollector : MonoBehaviour
      {
         // Store the amount of gathered Kiwis
         score++;
-        scoretext.text = "Kiwi Score: " + score.ToString();
+        scoreText.text = "Kiwi Score: " + score.ToString();
         // Add the pickup sound
         pickupSound.Play();
         Destroy(kiwi.gameObject);

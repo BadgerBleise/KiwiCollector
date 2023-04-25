@@ -78384,6 +78384,10 @@ PrefabInstance:
       propertyPath: TextContent
       value: 
       objectReference: {fileID: 650021177}
+    - target: {fileID: 8964947465354947098, guid: 35cb6c3ec1f001a4db3639c91cd9453c, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 123bb77d400bab44a9fc61d7e5432674, type: 2}
     - target: {fileID: 8964947465354947099, guid: 35cb6c3ec1f001a4db3639c91cd9453c, type: 3}
       propertyPath: m_Name
       value: Player
